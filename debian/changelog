@@ -1,4 +1,4 @@
-grub2 (2.00-14.1) UNRELEASED; urgency=low
+grub2 (2.00-14blankon1) suroboyo; urgency=low
 
   * Change debian/default/grub
     - GRUB_DISTRIBUTOR to BlankOn
