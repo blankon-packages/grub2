@@ -5,7 +5,7 @@
  
  # Title
 -title="Debian GNU/`uname -s | sed -e s,GNU/,,g`"
-+title=$(lsb_release --short --description 2>/dev/null) || title="Ubuntu"
++title=$(lsb_release --short --description 2>/dev/null) || title="BlankOn"
  
  # should update-grub remember the default entry
  updatedefaultentry="false"
@@ -32,7 +32,7 @@
  	command_line_arguments=$1
  
 +# does this version of grub support the quiet option?
-+if [ -f ${grub_dir}/installed-version ] && dpkg --compare-versions `cat ${grub_dir}/installed-version` ge 0.97-11ubuntu4; then
++if [ -f ${grub_dir}/installed-version ] && dpkg --compare-versions `cat ${grub_dir}/installed-version` ge 0.97-11blankon4; then
 +    supports_quiet=true
 +else
 +    supports_quiet=false

@@ -1,3 +1,12 @@
+grub2 (2.00-14blankon2) suroboyo; urgency=low
+
+  * Changes:
+    - debian/rules Ubuntu to BlankOn
+    - rename debian/legacy update-grub.ubuntu.patch to update-grub.blankon.patch
+    - debian/legacy/update-grub.blankon.patch Ubuntu to BlankOn
+
+ -- mijortsa <azis.astrojim@surabaya.di.blankon.in>  Sun, 23 Jun 2013 22:40:38 +0700
+
 grub2 (2.00-14blankon1) suroboyo; urgency=low
 
   * Change debian/default/grub
