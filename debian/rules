@@ -52,7 +52,7 @@ else
 $(error COMMON_PLATFORM not set for $(DEB_HOST_ARCH_CPU))
 endif
 
-ifeq (yes,$(shell dpkg-vendor --derives-from Ubuntu && echo yes))
+ifeq (yes,$(shell dpkg-vendor --derives-from BlankOn && echo yes))
 DEFAULT_CMDLINE := quiet splash
 else
 DEFAULT_CMDLINE := quiet
@@ -310,10 +310,10 @@ override_dh_install:
 	dh_install -pgrub-emu-dbg --sourcedir=debian/tmp-grub-emu
 	sed -i -e "s/@DEFAULT_CMDLINE@/$(DEFAULT_CMDLINE)/g" \
 		debian/grub2-common/usr/share/grub/default/grub
-ifeq (yes,$(shell dpkg-vendor --derives-from Ubuntu && echo yes))
+ifeq (yes,$(shell dpkg-vendor --derives-from BlankOn && echo yes))
 ifneq (,$(filter grub-pc,$(BUILD_PACKAGES)))
 	patch debian/grub-pc/usr/lib/grub-legacy/update-grub \
-		< debian/legacy/update-grub.ubuntu.patch
+		< debian/legacy/update-grub.blankon.patch
 endif
 endif
 
@@ -327,8 +327,8 @@ override_dh_strip:
 override_dh_shlibdeps:
 	dh_shlibdeps -X.module
 
-ifeq (yes,$(shell dpkg-vendor --derives-from Ubuntu && echo yes))
-LEGACY_DOC_CONFLICTS := grub-doc (<< 0.97-29ubuntu60), grub-legacy-doc (<< 0.97-29ubuntu60)
+ifeq (yes,$(shell dpkg-vendor --derives-from BlankOn && echo yes))
+LEGACY_DOC_CONFLICTS := grub-doc (<< 0.97-29blankon60), grub-legacy-doc (<< 0.97-29blankon60)
 else
 LEGACY_DOC_CONFLICTS := grub-doc (<< 0.97-32), grub-legacy-doc (<< 0.97-59)
 endif
@@ -340,7 +340,7 @@ TARNAME := grub2_$(deb_version)_$(DEB_HOST_ARCH).tar.gz
 
 override_dh_builddeb:
 	dh_builddeb -- -Zxz
-ifeq (yes,$(shell dpkg-vendor --derives-from Ubuntu && echo yes))
+ifeq (yes,$(shell dpkg-vendor --derives-from BlankOn && echo yes))
 ifeq ($(DEB_HOST_ARCH),amd64)
 	debian/build-efi-images \
 		build/grub-$(COMMON_PLATFORM)/grub-mkimage \
@@ -368,7 +368,7 @@ override_dh_clean: debian/legacy/update-grub debian/grub-extras
 		rm -f debian/grub-{pc,efi-*,ieee1275,coreboot,yeeloong,emu}{,-bin,-dbg}.$$i ; \
 	done
 	rm -rf debian/tmp-*/
-ifeq (yes,$(shell dpkg-vendor --derives-from Ubuntu && echo yes))
+ifeq (yes,$(shell dpkg-vendor --derives-from BlankOn && echo yes))
 ifeq ($(DEB_HOST_ARCH),amd64)
 	rm -rf debian/grub2-images
 endif
