@@ -1,7 +1,7 @@
 Source: grub2
 Section: admin
 Priority: extra
-Maintainer: BlankOn Developer <blankon-dev@googlegroups.com>
+Maintainer: BlankOn Developers <blankon-dev@googlegroups.com>
 XSBC-Original-Maintainer: GRUB Maintainers <pkg-grub-devel@lists.alioth.debian.org>
 Uploaders: Robert Millan <rmh@debian.org>, Felix Zielcke <fzielcke@z-51.de>, Jordi Mallach <jordi@debian.org>, Colin Watson <cjwatson@debian.org>
 DM-Upload-Allowed: yes
@@ -18,7 +18,7 @@ Build-Depends: debhelper (>= 7.4.2~),
  po-debconf,
  help2man,
  texinfo,
- gcc-4.7-multilib,
+ gcc-4.7-multilib [i386 kopensolaris-i386 any-amd64 any-ppc64 any-sparc],
  gcc-4.7,
  libncurses5-dev,
  xfonts-unifont,
@@ -29,7 +29,7 @@ Build-Depends: debhelper (>= 7.4.2~),
  libgeom-dev (>= 8.2+ds1-1) [kfreebsd-any] | libgeom-dev (<< 8.2) [kfreebsd-any],
  libsdl1.2-dev [!hurd-any],
  xorriso (>= 0.5.6.pl00),
- qemu-system,
+ qemu-system [i386 kfreebsd-i386 kopensolaris-i386 any-amd64],
  qemu-utils [!hurd-any],
  parted [!hurd-any],
  libfuse-dev (>= 2.8.4-1.4),
@@ -438,8 +438,8 @@ Enhances: qemu
 Multi-Arch: foreign
 Description: GRUB firmware image for QEMU
  This package contains a binary of GRUB that has been built for use as
- firmware for QEMU.  It can be used as a replacement for the standard
- PC BIOS provided by the bochsbios package (bios.bin).
+ firmware for QEMU.  It can be used as a replacement for other PC BIOS
+ images provided by seabios, bochsbios, and so on.
  .
  In order to make QEMU use this firmware, simply add `-bios grub.bin' when
  invoking it.
@@ -449,52 +449,52 @@ Description: GRUB firmware image for QEMU
  you want to install GRUB as firmware on real hardware, you need to use the
  grub-coreboot package, and manually combine that with coreboot.
 
-#Package: grub-yeeloong-bin
-#Architecture: any-mipsel
-#Depends: ${shlibs:Depends}, ${misc:Depends}, grub-common (= ${binary:Version})
-#Replaces: grub-common (<< 1.98+20100617-2), grub-yeeloong (<< 1.99-1)
-#Multi-Arch: foreign
-#Description: GRand Unified Bootloader, version 2 (Yeeloong binaries)
-# GRUB is a portable, powerful bootloader.  This version of GRUB is based on a
-# cleaner design than its predecessors, and provides the following new features:
-# 
-#  - Scripting in grub.cfg using BASH-like syntax.
-#  - Support for modern partition maps such as GPT.
-#  - Modular generation of grub.cfg via update-grub.  Packages providing GRUB
-#    add-ons can plug in their own script rules and trigger updates by invoking
-#    update-grub.
-#
-# This package contains a version of GRUB that has been built for use with
-# the Lemote Yeeloong laptop.  It will not automatically install GRUB as the
-# active boot loader, nor will it automatically update grub.cfg on upgrade,
-# so most people should install grub-yeeloong instead.
+Package: grub-yeeloong-bin
+Architecture: any-mipsel
+Depends: ${shlibs:Depends}, ${misc:Depends}, grub-common (= ${binary:Version})
+Replaces: grub-common (<< 1.98+20100617-2), grub-yeeloong (<< 1.99-1)
+Multi-Arch: foreign
+Description: GRand Unified Bootloader, version 2 (Yeeloong binaries)
+ GRUB is a portable, powerful bootloader.  This version of GRUB is based on a
+ cleaner design than its predecessors, and provides the following new features:
+ .
+  - Scripting in grub.cfg using BASH-like syntax.
+  - Support for modern partition maps such as GPT.
+  - Modular generation of grub.cfg via update-grub.  Packages providing GRUB
+    add-ons can plug in their own script rules and trigger updates by invoking
+    update-grub.
+ .
+ This package contains a version of GRUB that has been built for use with
+ the Lemote Yeeloong laptop.  It will not automatically install GRUB as the
+ active boot loader, nor will it automatically update grub.cfg on upgrade,
+ so most people should install grub-yeeloong instead.
 
-#Package: grub-yeeloong-dbg
-#Section: debug
-#Architecture: any-mipsel
-#Depends: ${misc:Depends}, grub-yeeloong-bin (= ${binary:Version}), grub-common (= ${binary:Version})
-#Multi-Arch: foreign
-#Description: GRand Unified Bootloader, version 2 (Yeeloong debug files)
-# This package contains debugging files for grub-yeeloong-bin.  You only
-# need these if you are trying to debug GRUB using its GDB stub.
+Package: grub-yeeloong-dbg
+Section: debug
+Architecture: any-mipsel
+Depends: ${misc:Depends}, grub-yeeloong-bin (= ${binary:Version}), grub-common (= ${binary:Version})
+Multi-Arch: foreign
+Description: GRand Unified Bootloader, version 2 (Yeeloong debug files)
+ This package contains debugging files for grub-yeeloong-bin.  You only
+ need these if you are trying to debug GRUB using its GDB stub.
 
-#Package: grub-yeeloong
-#Architecture: any-mipsel
-#Depends: ${shlibs:Depends}, ${misc:Depends}, grub2-common (= ${binary:Version}), grub-yeeloong-bin (= ${binary:Version}), ucf
-#Replaces: grub-common (<< 1.98+20100617-2)
-#Multi-Arch: foreign
-#Description: GRand Unified Bootloader, version 2 (Yeeloong version)
-# GRUB is a portable, powerful bootloader.  This version of GRUB is based on a
-# cleaner design than its predecessors, and provides the following new features:
-#
-#  - Scripting in grub.cfg using BASH-like syntax.
-#  - Support for modern partition maps such as GPT.
-#  - Modular generation of grub.cfg via update-grub.  Packages providing GRUB
-#    add-ons can plug in their own script rules and trigger updates by invoking
-#    update-grub.
-#
-# This package contains a version of GRUB that has been built for use with
-# the Lemote Yeeloong laptop.
+Package: grub-yeeloong
+Architecture: any-mipsel
+Depends: ${shlibs:Depends}, ${misc:Depends}, grub2-common (= ${binary:Version}), grub-yeeloong-bin (= ${binary:Version}), ucf
+Replaces: grub-common (<< 1.98+20100617-2)
+Multi-Arch: foreign
+Description: GRand Unified Bootloader, version 2 (Yeeloong version)
+ GRUB is a portable, powerful bootloader.  This version of GRUB is based on a
+ cleaner design than its predecessors, and provides the following new features:
+ .
+  - Scripting in grub.cfg using BASH-like syntax.
+  - Support for modern partition maps such as GPT.
+  - Modular generation of grub.cfg via update-grub.  Packages providing GRUB
+    add-ons can plug in their own script rules and trigger updates by invoking
+    update-grub.
+ .
+ This package contains a version of GRUB that has been built for use with
+ the Lemote Yeeloong laptop.
 
 Package: grub-theme-starfield
 Architecture: any-i386 any-amd64 any-powerpc any-ppc64 any-sparc any-mipsel any-ia64

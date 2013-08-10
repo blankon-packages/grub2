@@ -32,7 +32,7 @@
  	command_line_arguments=$1
  
 +# does this version of grub support the quiet option?
-+if [ -f ${grub_dir}/installed-version ] && dpkg --compare-versions `cat ${grub_dir}/installed-version` ge 0.97-11blankon4; then
++if [ -f ${grub_dir}/installed-version ] && dpkg --compare-versions `cat ${grub_dir}/installed-version` ge 0.97-11; then
 +    supports_quiet=true
 +else
 +    supports_quiet=false
