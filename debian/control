@@ -46,7 +46,7 @@ Vcs-Browser: http://anonscm.debian.org/loggerhead/pkg-grub/trunk/grub/
 Package: grub2
 Section: oldlibs
 Architecture: any
-Depends: grub-pc (= ${binary:Version}) [i386 amd64] | grub-ieee1275 (= ${binary:Version}) [any-powerpc any-ppc64 any-sparc], ${misc:Depends}
+Depends: grub-pc (= ${binary:Version}) | grub-ieee1275 (= ${binary:Version}) [any-powerpc any-ppc64 any-sparc], ${misc:Depends}
 Multi-Arch: foreign
 Description: GRand Unified Bootloader, version 2 (dummy package)
  This is a dummy transitional package to handle GRUB 2 upgrades.  It can be
