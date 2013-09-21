@@ -1,9 +1,9 @@
-grub2 (2.00-19blankon1) unstable; urgency=low
+grub2 (2.00-19blankon1) suroboyo; urgency=low
 
   * New Upstream Updates
   *  debian/control change to any for ach any-i386 & any-amd64
 
- -- Rahman Yusri Aftian <aftian@di.blankon.in>  Sun, 22 Sep 2013 00:00:09 +0700
+ -- Rahman Yusri Aftian <aftian@di.blankon.in>  Sun, 22 Sep 2013 00:03:09 +0700
 
 grub2 (2.00-19) unstable; urgency=low
 
