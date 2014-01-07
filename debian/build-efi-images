@@ -68,10 +68,10 @@ else
 fi
 EOF
 
-/sbin/mkfs.msdos -C "$workdir/memdisk.fat" 64
+mkfs.msdos -C "$workdir/memdisk.fat" 64
 mcopy -i "$workdir/memdisk.fat" "$workdir/grub.cfg" ::grub.cfg
 
-/sbin/mkfs.msdos -C "$workdir/memdisk-netboot.fat" 64
+mkfs.msdos -C "$workdir/memdisk-netboot.fat" 64
 mcopy -i "$workdir/memdisk-netboot.fat" "$workdir/grub-netboot.cfg" ::grub.cfg
 
 CD_MODULES="
