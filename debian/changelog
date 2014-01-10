@@ -1,6 +1,6 @@
 grub2 (2.00-22blankon1) suroboyo; urgency=medium
 
-  * Change Grub_Distributor
+  * debian/rules: Disable dpkg-vendor
 
  -- Mahyuddin Idram Ahmad <dotovr@di.blankon.in>  Wed, 08 Jan 2014 02:54:57 +0700
 

@@ -44,43 +44,43 @@ ifneq (,$(filter i386 amd64,$(DEB_HOST_ARCH_CPU)))
 COMMON_PLATFORM := pc
 else ifneq (,$(filter powerpc ppc64 sparc,$(DEB_HOST_ARCH_CPU)))
 COMMON_PLATFORM := ieee1275
-else ifeq (mipsel,$(DEB_HOST_ARCH_CPU))
-COMMON_PLATFORM := yeeloong
+#else ifeq (mipsel,$(DEB_HOST_ARCH_CPU))
+#COMMON_PLATFORM := yeeloong
 else ifeq (ia64,$(DEB_HOST_ARCH_CPU))
 COMMON_PLATFORM := efi-ia64
 else
 $(error COMMON_PLATFORM not set for $(DEB_HOST_ARCH_CPU))
 endif
 
-ifeq (yes,$(shell dpkg-vendor --derives-from Ubuntu && echo yes))
+#ifeq (yes,$(shell dpkg-vendor --derives-from Ubuntu && echo yes))
+#DEFAULT_CMDLINE := quiet splash
+#DEFAULT_TIMEOUT := 10
+#DEFAULT_HIDDEN_TIMEOUT := 0
+#DEFAULT_HIDDEN_TIMEOUT_BOOL := true
+#confflags += \
+#	--enable-ubuntu-recovery \
+#	--enable-quiet-boot \
+#	--enable-quick-boot \
+#	--enable-gfxpayload-dynamic \
+#	--enable-vt-handoff
+#substvars := \
+#	-Vlsb-base-depends="lsb-base (>= 3.0-6)" \
+#	-Vgfxpayload-depends="grub-gfxpayload-lists [any-i386 any-amd64]"
+#else
 DEFAULT_CMDLINE := quiet splash
 DEFAULT_TIMEOUT := 10
 DEFAULT_HIDDEN_TIMEOUT := 0
 DEFAULT_HIDDEN_TIMEOUT_BOOL := true
-confflags += \
-	--enable-ubuntu-recovery \
-	--enable-quiet-boot \
-	--enable-quick-boot \
-	--enable-gfxpayload-dynamic \
-	--enable-vt-handoff
-substvars := \
-	-Vlsb-base-depends="lsb-base (>= 3.0-6)" \
-	-Vgfxpayload-depends="grub-gfxpayload-lists [any-i386 any-amd64]"
-else
-DEFAULT_CMDLINE := quiet
-DEFAULT_TIMEOUT := 5
-DEFAULT_HIDDEN_TIMEOUT :=
-DEFAULT_HIDDEN_TIMEOUT_BOOL := false
 substvars :=
-endif
+#endif
 
 SB_PACKAGE :=
-ifeq (yes,$(shell dpkg-vendor --derives-from Ubuntu && echo yes))
+#ifeq (yes,$(shell dpkg-vendor --derives-from Ubuntu && echo yes))
 ifeq ($(DEB_HOST_ARCH),amd64)
 SB_PACKAGE := grub-efi-amd64
 SB_PLATFORM := x86_64-efi
 SB_EFI_NAME := x64
-endif
+#endif
 endif
 
 %:
@@ -320,10 +320,10 @@ install/grub-common:
 				>> debian/grub-common.$$i ; \
 		fi ; \
 	done
-ifeq (yes,$(shell dpkg-vendor --derives-from Ubuntu && echo yes))
-	install -D -m 0755 debian/grub-common.pm-sleep \
-		$(CURDIR)/debian/$(package)/etc/pm/sleep.d/10_grub-common
-endif
+#ifeq (yes,$(shell dpkg-vendor --derives-from Ubuntu && echo yes))
+#	install -D -m 0755 debian/grub-common.pm-sleep \
+#		$(CURDIR)/debian/$(package)/etc/pm/sleep.d/10_grub-common
+#endif
 
 override_dh_install:
 	dh_install -pgrub2 -pgrub-linuxbios -pgrub-efi -pgrub-rescue-pc -pgrub-firmware-qemu
@@ -347,24 +347,24 @@ ifneq (,$(DEFAULT_HIDDEN_TIMEOUT))
 	perl -pi -e 's/^GRUB_TIMEOUT=.*/GRUB_HIDDEN_TIMEOUT=0\nGRUB_HIDDEN_TIMEOUT_QUIET=true\n$$&/' \
 		debian/grub2-common/usr/share/grub/default/grub
 endif
-ifeq (yes,$(shell dpkg-vendor --derives-from Ubuntu && echo yes))
-ifneq (,$(filter grub-pc,$(BUILD_PACKAGES)))
-	patch debian/grub-pc/usr/lib/grub-legacy/update-grub \
-		< debian/legacy/update-grub.ubuntu.patch
-endif
-endif
+#ifeq (yes,$(shell dpkg-vendor --derives-from Ubuntu && echo yes))
+#ifneq (,$(filter grub-pc,$(BUILD_PACKAGES)))
+#	patch debian/grub-pc/usr/lib/grub-legacy/update-grub \
+#		< debian/legacy/update-grub.ubuntu.patch
+#endif
+#endif
 
 override_dh_installdocs:
 	dh_installdocs -pgrub-common -pgrub-rescue-pc -pgrub-firmware-qemu -A AUTHORS NEWS README THANKS TODO
 	dh_installdocs -Ngrub-common -Ngrub-rescue-pc -Ngrub-firmware-qemu --link-doc=grub-common
 
-ifeq (yes,$(shell dpkg-vendor --derives-from Ubuntu && echo yes))
-override_dh_installinit:
-	dh_installinit -- start 99 2 3 4 5 .
-else
+#ifeq (yes,$(shell dpkg-vendor --derives-from Ubuntu && echo yes))
+#override_dh_installinit:
+#	dh_installinit -- start 99 2 3 4 5 .
+#else
 override_dh_installinit:
 	:
-endif
+#endif
 
 override_dh_bugfiles:
 	dh_bugfiles -A
@@ -375,11 +375,11 @@ override_dh_strip:
 override_dh_shlibdeps:
 	dh_shlibdeps -X.module
 
-ifeq (yes,$(shell dpkg-vendor --derives-from Ubuntu && echo yes))
-LEGACY_DOC_CONFLICTS := grub-doc (<< 0.97-29ubuntu60), grub-legacy-doc (<< 0.97-29ubuntu60)
-else
+#ifeq (yes,$(shell dpkg-vendor --derives-from Ubuntu && echo yes))
+#LEGACY_DOC_CONFLICTS := grub-doc (<< 0.97-29ubuntu60), grub-legacy-doc (<< 0.97-29ubuntu60)
+#else
 LEGACY_DOC_CONFLICTS := grub-doc (<< 0.97-32), grub-legacy-doc (<< 0.97-59)
-endif
+#endif
 
 override_dh_gencontrol:
 	dh_gencontrol -- \
