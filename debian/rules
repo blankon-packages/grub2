@@ -38,7 +38,7 @@ confflags = PACKAGE_VERSION="$(deb_version)" PACKAGE_STRING="GRUB $(deb_version)
 AUTOGEN_DEB_FILES = config templates preinst postinst postrm dirs install links maintscript
 
 BUILD_PACKAGES := $(strip $(shell dh_listpackages))
-REAL_PACKAGES = grub-emu grub-pc grub-coreboot grub-efi-ia32 grub-efi-amd64 grub-efi-ia64 grub-ieee1275 grub-firmware-qemu grub-yeeloong
+REAL_PACKAGES = grub-emu grub-pc grub-coreboot grub-efi-ia32 grub-efi-amd64 grub-efi-ia64 grub-ieee1275 grub-firmware-qemu
 
 ifneq (,$(filter i386 amd64,$(DEB_HOST_ARCH_CPU)))
 COMMON_PLATFORM := pc
@@ -76,12 +76,12 @@ substvars :=
 
 SB_PACKAGE :=
 #ifeq (yes,$(shell dpkg-vendor --derives-from Ubuntu && echo yes))
-ifeq ($(DEB_HOST_ARCH),amd64)
-SB_PACKAGE := grub-efi-amd64
-SB_PLATFORM := x86_64-efi
-SB_EFI_NAME := x64
+#ifeq ($(DEB_HOST_ARCH),amd64)
+#SB_PACKAGE := grub-efi-amd64
+#SB_PLATFORM := x86_64-efi
+#SB_EFI_NAME := x64
 #endif
-endif
+#endif
 
 %:
 	dh $@ --parallel
