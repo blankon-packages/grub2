@@ -1,3 +1,9 @@
+grub2 (2.00-22blankon4) suroboyo-updates; urgency=medium
+
+  * timeout default 5
+
+ -- Mijortsa <azis.astrojim@surabaya.di.blankon.in>  Mon, 10 Nov 2014 21:07:24 +0700
+
 grub2 (2.00-22blankon3) suroboyo-updates; urgency=medium
 
   * reconfig etc/default/grub
