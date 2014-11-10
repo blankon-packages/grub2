@@ -1,3 +1,9 @@
+grub2 (2.00-22blankon3) suroboyo-updates; urgency=medium
+
+  * reconfig etc/default/grub
+
+ -- Mijortsa <azis.astrojim@surabaya.di.blankon.in>  Mon, 10 Nov 2014 20:45:31 +0700
+
 grub2 (2.00-22blankon2) suroboyo-updates; urgency=medium
 
   * GRUB_BACKGROUND="/usr/share/background/grub.png"

@@ -1,4 +1,5 @@
 ../../debian/default			usr/share/grub
+../../debian/default/grub		etc/default
 ../../debian/update-grub		usr/sbin
 
 usr/sbin/grub-install
