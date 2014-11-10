@@ -1,3 +1,9 @@
+grub2 (2.00-22blankon2) suroboyo-updates; urgency=medium
+
+  * GRUB_BACKGROUND="/usr/share/background/grub.png"
+
+ -- Mijortsa <azis.astrojim@surabaya.di.blankon.in>  Mon, 10 Nov 2014 18:47:19 +0700
+
 grub2 (2.00-22blankon1) suroboyo; urgency=medium
 
   * debian/rules: Disable dpkg-vendor
