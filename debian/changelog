@@ -1,3 +1,10 @@
+grub2 (2.02~beta2-23blankon2) tambora; urgency=medium
+
+  * upstream release
+  * link background /usr/share/backgrounds/grub.png
+
+ -- Mijortsa <azis.astrojim@surabaya.di.blankon.in>  Tue, 02 Jun 2015 13:41:01 +0700
+
 grub2 (2.02~beta2-23blankon1) tambora; urgency=medium
 
   * Uptream release
