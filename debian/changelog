@@ -1,3 +1,9 @@
+grub2 (2.02~beta2-23blankon4) tambora; urgency=medium
+
+  * Rebuild background
+
+ -- Mijortsa <azis.astrojim@surabaya.di.blankon.in>  Fri, 12 Jun 2015 04:23:23 +0700
+
 grub2 (2.02~beta2-23blankon3) tambora; urgency=medium
 
   * add grup.png
