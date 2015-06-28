@@ -1,7 +1,8 @@
 Source: grub2
 Section: admin
 Priority: extra
-Maintainer: GRUB Maintainers <pkg-grub-devel@lists.alioth.debian.org>
+Maintainer: BlankOn Developers <blankon-dev@googlegroups.com>
+XSBC-Original-Maintainer: GRUB Maintainers <pkg-grub-devel@lists.alioth.debian.org>
 Uploaders: Robert Millan <rmh@debian.org>, Felix Zielcke <fzielcke@z-51.de>, Jordi Mallach <jordi@debian.org>, Colin Watson <cjwatson@debian.org>, Ian Campbell <ijc@debian.org>
 Build-Depends: debhelper (>= 7.4.2~),
  dpkg-dev (>= 1.15.1~),
@@ -14,20 +15,20 @@ Build-Depends: debhelper (>= 7.4.2~),
  po-debconf,
  help2man,
  texinfo,
- gcc-4.9-multilib [i386 kopensolaris-i386 any-amd64 any-ppc64 any-sparc],
+ gcc-4.9-multilib [i386 kopensolaris-i386 amd64 any-ppc64 any-sparc],
  gcc-4.9,
  xfonts-unifont,
  libfreetype6-dev,
  gettext,
  libusb-dev [!hurd-any],
- libdevmapper-dev (>= 2:1.02.34) [linux-any],
+ libdevmapper-dev (>= 2:1.02.34),
  libgeom-dev (>= 8.2+ds1-1) [kfreebsd-any] | libgeom-dev (<< 8.2) [kfreebsd-any],
  libsdl1.2-dev [!hurd-any],
  xorriso (>= 0.5.6.pl00),
- qemu-system [i386 kfreebsd-i386 kopensolaris-i386 any-amd64],
+ qemu-system [i386 kfreebsd-i386 kopensolaris-i386 amd64],
  cpio [i386 kopensolaris-i386 amd64 x32],
  parted [!hurd-any],
- libfuse-dev (>= 2.8.4-1.4) [linux-any kfreebsd-any],
+ libfuse-dev (>= 2.8.4-1.4) [amd64 i386 freebsd-any],
  ttf-dejavu-core,
  liblzma-dev,
  dosfstools [amd64 arm64],
@@ -239,7 +240,7 @@ Description: GRand Unified Bootloader, version 2 (Coreboot version)
 
 Package: grub-efi-ia32-bin
 Architecture: any-i386 any-amd64
-Depends: ${shlibs:Depends}, ${misc:Depends}, grub-common (= ${binary:Version}), efibootmgr [linux-any]
+Depends: ${shlibs:Depends}, ${misc:Depends}, grub-common (= ${binary:Version}), efibootmgr [any]
 Replaces: grub2 (<< ${source:Version}), grub-common (<= 1.97~beta2-1), grub-efi, grub-efi-ia32 (<< 1.99-1)
 Multi-Arch: foreign
 Description: GRand Unified Bootloader, version 2 (EFI-IA32 binaries)
