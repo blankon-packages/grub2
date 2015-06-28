@@ -177,7 +177,7 @@ case $GRUB_DISTRIBUTOR in
 	Blankon)
 		;;
 	*)
-		if set_background_image "/usr/share/images/desktop-base/desktop-grub.png"; then
+		if set_background_image "/usr/share/backgrounds/grub.png"; then
 			exit 0
 		fi
 		;;
