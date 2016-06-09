@@ -1,3 +1,9 @@
+grub2 (2.02~beta2-36blamkon2) tambora; urgency=medium
+
+  * added /patches from new upstream
+
+ -- Syai Mif <syaimif@di.blankon.in>  Thu, 09 Jun 2016 13:18:59 +0700
+
 grub2 (2.02~beta2-36blamkon1) tambora; urgency=medium
 
   * New upstream release
