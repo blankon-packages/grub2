@@ -1,0 +1,11 @@
+#! /bin/sh
+set -e
+
+case "$1" in
+  configure)
+  if [ -f /usr/share/backgrounds/grub.png ]; then
+    dpkg-divert --add --local --divert /usr/share/backgrounds/grub.png.divert --rename /usr/share/backgrounds/grub.png
+  fi
+esac
+
+exit 0

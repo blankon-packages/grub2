@@ -1,3 +1,10 @@
+grub2 (2.02~beta2-36blankon3) tambora; urgency=medium
+
+  * Fix file grub.png overwrite
+    - Add script grub2-common.post*
+
+ -- dotovr <dotovr@preko>  Sat, 11 Jun 2016 19:25:40 +0700
+
 grub2 (2.02~beta2-36blamkon2) tambora; urgency=medium
 
   * added /patches from new upstream
