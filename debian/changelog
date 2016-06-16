@@ -1,3 +1,9 @@
+grub2 (2.02~beta2-36blankon4) tambora; urgency=medium
+
+  * Add Grub_background in grub
+
+ -- Syai Mif <syaimif@di.blankon.in>  Thu, 16 Jun 2016 10:52:29 +0700
+
 grub2 (2.02~beta2-36blankon3) tambora; urgency=medium
 
   * Fix file grub.png overwrite
