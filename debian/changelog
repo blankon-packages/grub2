@@ -1,3 +1,10 @@
+grub2 (2.02~beta2-36blankon5) tambora; urgency=medium
+
+  * Fix script grub2-common.postinst
+  * Rename grub.png to grub-blankon.png
+
+ -- dotovr <dotovr@preko>  Fri, 17 Jun 2016 04:05:36 +0700
+
 grub2 (2.02~beta2-36blankon4) tambora; urgency=medium
 
   * Add Grub_background in grub
