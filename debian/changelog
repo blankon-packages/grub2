@@ -1,3 +1,9 @@
+grub2 (2.02~beta2-36blankon6) tambora; urgency=medium
+
+  * Path grub-blankon.png in default/grub
+ 
+ -- Syai Mif <syaimif@di.blankon.in>  Fri, 17 Jun 2016 13:16:26 +0700
+
 grub2 (2.02~beta2-36blankon5) tambora; urgency=medium
 
   * Fix script grub2-common.postinst
