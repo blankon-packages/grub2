@@ -1,3 +1,9 @@
+grub2 (2.02~beta2-36blankon7) tambora; urgency=medium
+
+  * Add default/grub to etc/default in grub2-common.
+
+ -- Syai Mif <syaimif@di.blankon.in>  Fri, 17 Jun 2016 21:59:53 +0700
+
 grub2 (2.02~beta2-36blankon6) tambora; urgency=medium
 
   * Path grub-blankon.png in default/grub
