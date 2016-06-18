@@ -1,3 +1,9 @@
+grub2 (2.02~beta2-36blankon9) tambora; urgency=medium
+
+  * Add splash in default grub 
+
+ -- dotovr <dotovr@preko>  Sat, 18 Jun 2016 22:58:47 +0700
+
 grub2 (2.02~beta2-36blankon8) tambora; urgency=medium
 
   * Reconfigure grub default
