@@ -1,3 +1,10 @@
+grub2 (2.02~beta2-36blankon8) tambora; urgency=medium
+
+  * Reconfigure grub default
+    - Fixed #151 #152
+
+ -- dotovr <dotovr@preko>  Sat, 18 Jun 2016 19:27:54 +0700
+
 grub2 (2.02~beta2-36blankon7) tambora; urgency=medium
 
   * Add default/grub to etc/default in grub2-common.
