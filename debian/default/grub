@@ -4,9 +4,9 @@
 #   info -f grub -n 'Simple configuration'
 
 GRUB_DEFAULT=0
-GRUB_TIMEOUT=5
+GRUB_TIMEOUT=@DEFAULT_TIMEOUT@
 GRUB_DISTRIBUTOR=`lsb_release -i -s 2> /dev/null || echo BlankOn`
-GRUB_CMDLINE_LINUX_DEFAULT="rw quit splash console=tty2"
+GRUB_CMDLINE_LINUX_DEFAULT="@DEFAULT_CMDLINE@"
 GRUB_CMDLINE_LINUX=""
 
 GRUB_BACKGROUND="/usr/share/backgrounds/grub-blankon.png"

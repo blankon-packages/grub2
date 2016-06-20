@@ -1,6 +1,13 @@
+grub2 (2.02~beta2-36blankon10) tambora; urgency=medium
+
+  * Revert grub config background
+  * Use set grub themes for background
+
+ -- dotovr <dotovr@preko>  Mon, 20 Jun 2016 22:49:59 +0700
+
 grub2 (2.02~beta2-36blankon9) tambora; urgency=medium
 
-  * Add splash in default grub 
+  * Add splash in default grub
 
  -- dotovr <dotovr@preko>  Sat, 18 Jun 2016 22:58:47 +0700
 

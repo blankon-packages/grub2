@@ -173,15 +173,10 @@ if set_background_image "${WALLPAPER}" "${COLOR_NORMAL}" "${COLOR_HIGHLIGHT}"; t
 fi
 
 # If we haven't found a background image yet, use the default from desktop-base.
-case $GRUB_DISTRIBUTOR in
-	Blankon)
-		;;
-	*)
-		if set_background_image "/usr/share/backgrounds/grub.png"; then
-			exit 0
-		fi
-		;;
-esac
+if set_background_image "/usr/share/backgrounds/grub-blankon.png"; then
+	exit 0
+fi
+c
 
 # Finally, if all of the above fails, use the default theme.
 set_default_theme
