@@ -1,3 +1,9 @@
+grub2 (2.02~beta2-36blankon11) tambora; urgency=medium
+
+  * default/grub: drop GRUB_BACKGROUND 
+
+ -- dotovr <dotovr@preko>  Tue, 19 Jul 2016 14:24:03 +0700
+
 grub2 (2.02~beta2-36blankon10) tambora; urgency=medium
 
   * Revert grub config background
