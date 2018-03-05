@@ -1,33 +1,36 @@
-grub2 (2.02~beta3-5blankon5) uluwatu; urgency=medium
+grub2 (2.02-2blankon2) uluwatu; urgency=medium
 
   * Rebuild
 
- -- antosamalona <ansamsoftdev@gmail.com>  Mon, 05 Mar 2018 08:41:17 +0800
+ -- antosamalona <ansamsoftdev@gmail.com>  Mon, 05 Mar 2018 16:39:43 +0800
 
-grub2 (2.02~beta3-5blankon4) uluwatu; urgency=medium
-
-  * Skip version
-
- -- AnTo SamalonA <antosamalona@masDell>  Wed, 02 Aug 2017 11:29:35 +0800
-
-grub2 (2.02~beta3-5blankon3) uluwatu; urgency=medium
-
-  * Rebuild
-
- -- AnTo SamalonA <ansamsoftdev@gmail.com>  Tue, 18 Jul 2017 23:06:52 +0800
-
-grub2 (2.02~beta3-5blankon2) uluwatu; urgency=medium
-
-  * Rebuild
-
- -- AnTo SamalonA <ansamsoftdev@gmail.com>  Tue, 18 Jul 2017 21:59:39 +0800
-
-grub2 (2.02~beta3-5blankon1) uluwatu; urgency=medium
+grub2 (2.02-2blankon1) uluwatu; urgency=medium
 
   * New upstream release
-  * Add blankon background
 
- -- AnTo SamalonA <ansamsoftdev@gmail.com>  Mon, 17 Jul 2017 08:24:31 +0800
+ -- AnTo SamalonA <ansamsoftdev@gmail.com>  Tue, 26 Sep 2017 11:32:47 +0800
+
+grub2 (2.02-2) unstable; urgency=medium
+
+  * Comment out debian/watch lines for betas and pre-releases for now.
+  * Cherry-pick upstream patch to allow mounting ext2/3/4 file systems that
+    have the 'encrypt' feature enabled (closes: #840204).
+
+ -- Colin Watson <cjwatson@debian.org>  Thu, 06 Jul 2017 18:02:02 +0100
+
+grub2 (2.02-1) unstable; urgency=medium
+
+  * New upstream release.
+    - xen: Fix wrong register in relocator (closes: #799480).
+  * Resolve symlinks for supported init paths as well as for /sbin/init
+    (thanks, Felipe Sateler; closes: #842315).
+
+  [ Debconf translations ]
+  * [sr] Serbian (Karolina Kalic; closes: #691288).
+  * [sr@latin] Serbian Latin (Karolina Kalic; closes: #691289).
+  * [pt] Portuguese (Rui Branco - DebianPT; closes: #864171).
+
+ -- Colin Watson <cjwatson@debian.org>  Fri, 23 Jun 2017 13:47:39 +0100
 
 grub2 (2.02~beta3-5) unstable; urgency=medium
 
