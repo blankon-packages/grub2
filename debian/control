@@ -243,7 +243,7 @@ Description: GRand Unified Bootloader, version 2 (Coreboot version)
 
 Package: grub-efi-ia32-bin
 Architecture: any-i386 any-amd64
-Depends: ${shlibs:Depends}, ${misc:Depends}, grub-common (= ${binary:Version}), efibootmgr [linux-any]
+Depends: ${shlibs:Depends}, ${misc:Depends}, grub-common (= ${binary:Version}), efibootmgr [any]
 Replaces: grub2 (<< ${source:Version}), grub-common (<= 1.97~beta2-1), grub-efi, grub-efi-ia32 (<< 1.99-1)
 Multi-Arch: foreign
 Description: GRand Unified Bootloader, version 2 (EFI-IA32 binaries)
@@ -294,7 +294,7 @@ Description: GRand Unified Bootloader, version 2 (EFI-IA32 version)
 
 Package: grub-efi-amd64-bin
 Architecture: i386 kopensolaris-i386 any-amd64
-Depends: ${shlibs:Depends}, ${misc:Depends}, grub-common (= ${binary:Version}), efibootmgr [linux-any]
+Depends: ${shlibs:Depends}, ${misc:Depends}, grub-common (= ${binary:Version}), efibootmgr [any]
 Replaces: grub2 (<< ${source:Version}), grub-common (<= 1.97~beta2-1), grub-efi-amd64 (<< 1.99-1)
 Multi-Arch: foreign
 Description: GRand Unified Bootloader, version 2 (EFI-AMD64 binaries)
@@ -392,7 +392,7 @@ Description: GRand Unified Bootloader, version 2 (IA64 version)
 
 Package: grub-efi-arm-bin
 Architecture: any-arm
-Depends: ${shlibs:Depends}, ${misc:Depends}, grub-common (= ${binary:Version}), efibootmgr [linux-any]
+Depends: ${shlibs:Depends}, ${misc:Depends}, grub-common (= ${binary:Version}), efibootmgr [any]
 Multi-Arch: foreign
 Description: GRand Unified Bootloader, version 2 (ARM UEFI binaries)
  GRUB is a portable, powerful bootloader.  This version of GRUB is based on a
@@ -439,7 +439,7 @@ Description: GRand Unified Bootloader, version 2 (ARM UEFI version)
 
 Package: grub-efi-arm64-bin
 Architecture: any-arm64
-Depends: ${shlibs:Depends}, ${misc:Depends}, grub-common (= ${binary:Version}), efibootmgr [linux-any]
+Depends: ${shlibs:Depends}, ${misc:Depends}, grub-common (= ${binary:Version}), efibootmgr [any]
 Multi-Arch: foreign
 Description: GRand Unified Bootloader, version 2 (ARM64 UEFI binaries)
  GRUB is a portable, powerful bootloader.  This version of GRUB is based on a
@@ -723,6 +723,6 @@ Description: GRand Unified Bootloader, version 2 (starfield theme)
 Package: grub-mount-udeb
 Package-Type: udeb
 Section: debian-installer
-Architecture: linux-any kfreebsd-any
+Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: export GRUB filesystems using FUSE
