@@ -15,24 +15,24 @@ Build-Depends: debhelper (>= 7.4.2~),
  help2man,
  texinfo,
  gcc-6,
- gcc-6-multilib [i386 kopensolaris-i386 any-amd64 any-ppc64 any-sparc],
+ gcc-6-multilib,
  xfonts-unifont,
  libfreetype6-dev,
  gettext,
  libdevmapper-dev,
- libgeom-dev (>= 8.2+ds1-1~) [kfreebsd-any] | libgeom-dev (<< 8.2) [kfreebsd-any],
+ libgeom-dev (>= 8.2+ds1-1~) | libgeom-dev (<< 8.2),
  libsdl1.2-dev [!hurd-any],
  xorriso,
- qemu-system [i386 kfreebsd-i386 kopensolaris-i386 any-amd64],
- cpio [i386 kopensolaris-i386 amd64 x32],
- parted [!hurd-any],
+ qemu-system,
+ cpio,
+ parted,
  libfuse-dev (>= 2.8.4-1.4),
  ttf-dejavu-core,
  liblzma-dev,
- dosfstools [amd64 arm64],
- mtools [amd64 arm64],
+ dosfstools,
+ mtools,
  wamerican,
- libparted-dev [any-ppc64el],
+ libparted-dev,
 Build-Conflicts: autoconf2.13, libzfs-dev, libnvpair-dev
 Standards-Version: 3.9.6
 Homepage: http://www.gnu.org/software/grub/
@@ -41,9 +41,9 @@ Vcs-Browser: https://anonscm.debian.org/cgit/pkg-grub/grub.git
 
 Package: grub2
 Section: oldlibs
-Architecture: any-i386 any-amd64 any-powerpc any-ppc64 any-ppc64el any-sparc any-sparc64
+Architecture: any
 Pre-Depends: ${misc:Pre-Depends}
-Depends: grub-pc (= ${binary:Version}) [any-i386 any-amd64] | grub-ieee1275 (= ${binary:Version}) [any-powerpc any-ppc64 any-ppc64el any-sparc any-sparc64], ${misc:Depends}
+Depends: grub-pc (= ${binary:Version}) | grub-ieee1275 (= ${binary:Version}), ${misc:Depends}
 Multi-Arch: foreign
 Description: GRand Unified Bootloader, version 2 (dummy package)
  This is a dummy transitional package to handle GRUB 2 upgrades.  It can be
@@ -51,7 +51,7 @@ Description: GRand Unified Bootloader, version 2 (dummy package)
 
 Package: grub-linuxbios
 Section: oldlibs
-Architecture: any-i386 any-amd64
+Architecture: any
 Pre-Depends: ${misc:Pre-Depends}
 Depends: grub-coreboot (= ${binary:Version}), ${misc:Depends}
 Multi-Arch: foreign
@@ -60,9 +60,9 @@ Description: GRand Unified Bootloader, version 2 (dummy package)
 
 Package: grub-efi
 Section: oldlibs
-Architecture: any-i386 any-amd64
+Architecture: any
 Pre-Depends: ${misc:Pre-Depends}
-Depends: ${misc:Depends}, grub-efi-ia32 (= ${binary:Version}) [any-i386], grub-efi-amd64 (= ${binary:Version}) [any-amd64]
+Depends: ${misc:Depends}, grub-efi-ia32 (= ${binary:Version}), grub-efi-amd64 (= ${binary:Version})
 Multi-Arch: foreign
 Description: GRand Unified Bootloader, version 2 (dummy package)
  This is a dummy transitional package that depends on either grub-efi-ia32 or
@@ -75,7 +75,7 @@ Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, gettext-base, ${lsb-base-depends}
 Replaces: grub-pc (<< 2.00-4), grub-ieee1275 (<< 2.00-4), grub-efi (<< 1.99-1), grub-coreboot (<< 2.00-4), grub-linuxbios (<< 1.96+20080831-1), grub-efi-ia32 (<< 2.00-4), grub-efi-amd64 (<< 2.00-4), grub-efi-ia64 (<< 2.00-4), grub-yeeloong (<< 2.00-4)
 Recommends: os-prober (>= 1.33)
-Suggests: multiboot-doc, grub-emu [any-i386 any-amd64 any-powerpc], xorriso (>= 0.5.6.pl00), desktop-base (>= 4.0.6), console-setup
+Suggests: multiboot-doc, grub-emu, xorriso (>= 0.5.6.pl00), desktop-base (>= 4.0.6), console-setup
 # mdadm: See bugs #435983 and #455746
 Breaks: mdadm (<< 2.6.7-2), lupin-support (<< 0.55), friendly-recovery (<< 0.2.13), apport (<< 2.1.1)
 Multi-Arch: foreign
@@ -89,7 +89,7 @@ Priority: optional
 # Not Architecture: any because this package contains some things which are
 # only built when there is a real platform (e.g. grub-install), and the rest
 # of the package is not very useful in a utilities-only build.
-Architecture: any-i386 any-amd64 any-powerpc any-ppc64 any-ppc64el any-sparc any-sparc64 any-mipsel any-ia64 any-arm any-arm64
+Architecture: any
 Depends: grub-common (= ${binary:Version}), dpkg (>= 1.15.4) | install-info, ${shlibs:Depends}, ${misc:Depends}
 Replaces: grub, grub-legacy, ${legacy-doc-br}, grub-common (<< 1.99-1), grub-pc (<< 2.00-4), grub-ieee1275 (<< 2.00-4), grub-efi (<< 1.99-1), grub-coreboot (<< 2.00-4), grub-linuxbios (<< 1.99-1), grub-efi-ia32 (<< 2.00-4), grub-efi-amd64 (<< 2.00-4), grub-efi-ia64 (<< 2.00-4), grub-yeeloong (<< 2.00-4)
 Conflicts: grub-legacy
@@ -101,7 +101,7 @@ Description: GRand Unified Bootloader (common files for version 2)
  Legacy if installed on the same system.
 
 Package: grub-emu
-Architecture: any-i386 any-amd64 any-powerpc
+Architecture: any
 Pre-Depends: ${misc:Pre-Depends}
 Depends: ${shlibs:Depends}, ${misc:Depends}, grub-common (= ${binary:Version})
 Replaces: grub-common (<= 1.97~beta3-1)
@@ -112,7 +112,7 @@ Description: GRand Unified Bootloader, version 2 (emulated version)
 
 Package: grub-emu-dbg
 Section: debug
-Architecture: any-i386 any-amd64 any-powerpc
+Architecture: any
 Depends: ${misc:Depends}, grub-emu (= ${binary:Version}), grub-common (= ${binary:Version})
 Multi-Arch: foreign
 Description: GRand Unified Bootloader, version 2 (emulated debug files)
@@ -121,7 +121,7 @@ Description: GRand Unified Bootloader, version 2 (emulated debug files)
 
 Package: grub-pc-bin
 Priority: optional
-Architecture: any-i386 any-amd64
+Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, grub-common (= ${binary:Version})
 Replaces: grub2 (<< ${source:Version}), grub-common (<= 1.97~beta2-1), grub-pc (<< 1.99-1)
 Suggests: desktop-base (>= 4.0.6)
@@ -147,7 +147,7 @@ Description: GRand Unified Bootloader, version 2 (PC/BIOS binaries)
 
 Package: grub-pc-dbg
 Section: debug
-Architecture: any-i386 any-amd64
+Architecture: any
 Depends: ${misc:Depends}, grub-pc-bin (= ${binary:Version}), grub-common (= ${binary:Version})
 Multi-Arch: foreign
 Description: GRand Unified Bootloader, version 2 (PC/BIOS debug files)
@@ -156,9 +156,9 @@ Description: GRand Unified Bootloader, version 2 (PC/BIOS debug files)
 
 Package: grub-pc
 Priority: optional
-Architecture: any-i386 any-amd64
+Architecture: any
 Pre-Depends: ${misc:Pre-Depends}
-Depends: ${shlibs:Depends}, ${misc:Depends}, grub2-common (= ${binary:Version}), grub-pc-bin (= ${binary:Version}), ucf, freebsd-utils (>= 8.0-4) [kfreebsd-any], ${gfxpayload-depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}, grub2-common (= ${binary:Version}), grub-pc-bin (= ${binary:Version}), ucf, freebsd-utils (>= 8.0-4), ${gfxpayload-depends}
 Replaces: grub, grub-legacy, grub2 (<< ${source:Version}), grub-common (<= 1.97~beta2-1), grub-efi-amd64, grub-efi-ia32, grub-coreboot, grub-ieee1275
 Conflicts: grub (<< 0.97-54), grub-legacy, grub-efi-amd64, grub-efi-ia32, grub-coreboot, grub-ieee1275, grub-xen
 Multi-Arch: foreign
@@ -180,7 +180,7 @@ Description: GRand Unified Bootloader, version 2 (PC/BIOS version)
  traditional PC/BIOS architecture.
 
 Package: grub-rescue-pc
-Architecture: any-i386 any-amd64
+Architecture: any
 Depends: ${misc:Depends}
 Multi-Arch: foreign
 Description: GRUB bootable rescue images, version 2 (PC/BIOS version)
@@ -192,7 +192,7 @@ Description: GRUB bootable rescue images, version 2 (PC/BIOS version)
   - grub-rescue-usb.img: USB image.
 
 Package: grub-coreboot-bin
-Architecture: any-i386 any-amd64
+Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, grub-common (= ${binary:Version})
 Replaces: grub2 (<< ${source:Version}), grub-common (<= 1.97~beta2-1), grub-linuxbios, grub-coreboot (<< 1.99-1)
 Conflicts: grub-linuxbios (<< ${source:Version})
@@ -214,7 +214,7 @@ Description: GRand Unified Bootloader, version 2 (Coreboot binaries)
 
 Package: grub-coreboot-dbg
 Section: debug
-Architecture: any-i386 any-amd64
+Architecture: any
 Depends: ${misc:Depends}, grub-coreboot-bin (= ${binary:Version}), grub-common (= ${binary:Version})
 Multi-Arch: foreign
 Description: GRand Unified Bootloader, version 2 (Coreboot debug files)
@@ -222,7 +222,7 @@ Description: GRand Unified Bootloader, version 2 (Coreboot debug files)
  these if you are trying to debug GRUB using its GDB stub.
 
 Package: grub-coreboot
-Architecture: any-i386 any-amd64
+Architecture: any
 Pre-Depends: ${misc:Pre-Depends}
 Depends: ${shlibs:Depends}, ${misc:Depends}, grub2-common (= ${binary:Version}), grub-coreboot-bin (= ${binary:Version}), ucf
 Replaces: grub-legacy, grub2 (<< ${source:Version}), grub-common (<= 1.97~beta2-1), grub-linuxbios, grub-efi-amd64, grub-efi-ia32, grub-pc, grub-ieee1275
@@ -242,8 +242,8 @@ Description: GRand Unified Bootloader, version 2 (Coreboot version)
  platforms running the Coreboot firmware.
 
 Package: grub-efi-ia32-bin
-Architecture: any-i386 any-amd64
-Depends: ${shlibs:Depends}, ${misc:Depends}, grub-common (= ${binary:Version}), efibootmgr [linux-any]
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, grub-common (= ${binary:Version}), efibootmgr
 Replaces: grub2 (<< ${source:Version}), grub-common (<= 1.97~beta2-1), grub-efi, grub-efi-ia32 (<< 1.99-1)
 Multi-Arch: foreign
 Description: GRand Unified Bootloader, version 2 (EFI-IA32 binaries)
@@ -264,7 +264,7 @@ Description: GRand Unified Bootloader, version 2 (EFI-IA32 binaries)
 
 Package: grub-efi-ia32-dbg
 Section: debug
-Architecture: any-i386 any-amd64
+Architecture: any
 Depends: ${misc:Depends}, grub-efi-ia32-bin (= ${binary:Version}), grub-common (= ${binary:Version})
 Multi-Arch: foreign
 Description: GRand Unified Bootloader, version 2 (EFI-IA32 debug files)
@@ -272,7 +272,7 @@ Description: GRand Unified Bootloader, version 2 (EFI-IA32 debug files)
  these if you are trying to debug GRUB using its GDB stub.
 
 Package: grub-efi-ia32
-Architecture: any-i386 any-amd64
+Architecture: any
 Pre-Depends: ${misc:Pre-Depends}
 Depends: ${shlibs:Depends}, ${misc:Depends}, grub2-common (= ${binary:Version}), grub-efi-ia32-bin (= ${binary:Version}), ucf
 Replaces: grub, grub-legacy, grub2 (<< ${source:Version}), grub-common (<= 1.97~beta2-1), grub-efi, grub-efi-amd64, grub-pc, grub-coreboot, grub-ieee1275
@@ -293,8 +293,8 @@ Description: GRand Unified Bootloader, version 2 (EFI-IA32 version)
  a BIOS interface has been activated).
 
 Package: grub-efi-amd64-bin
-Architecture: i386 kopensolaris-i386 any-amd64
-Depends: ${shlibs:Depends}, ${misc:Depends}, grub-common (= ${binary:Version}), efibootmgr [linux-any]
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, grub-common (= ${binary:Version}), efibootmgr
 Replaces: grub2 (<< ${source:Version}), grub-common (<= 1.97~beta2-1), grub-efi-amd64 (<< 1.99-1)
 Multi-Arch: foreign
 Description: GRand Unified Bootloader, version 2 (EFI-AMD64 binaries)
@@ -315,7 +315,7 @@ Description: GRand Unified Bootloader, version 2 (EFI-AMD64 binaries)
 
 Package: grub-efi-amd64-dbg
 Section: debug
-Architecture: i386 kopensolaris-i386 any-amd64
+Architecture: any
 Depends: ${misc:Depends}, grub-efi-amd64-bin (= ${binary:Version}), grub-common (= ${binary:Version})
 Multi-Arch: foreign
 Description: GRand Unified Bootloader, version 2 (EFI-AMD64 debug files)
@@ -323,7 +323,7 @@ Description: GRand Unified Bootloader, version 2 (EFI-AMD64 debug files)
  need these if you are trying to debug GRUB using its GDB stub.
 
 Package: grub-efi-amd64
-Architecture: i386 kopensolaris-i386 any-amd64
+Architecture: any
 Pre-Depends: ${misc:Pre-Depends}
 Depends: ${shlibs:Depends}, ${misc:Depends}, grub2-common (= ${binary:Version}), grub-efi-amd64-bin (= ${binary:Version}), ucf
 Replaces: grub, grub-legacy, grub2 (<< ${source:Version}), grub-common (<= 1.97~beta2-1), grub-pc, grub-efi-ia32, grub-coreboot, grub-ieee1275
@@ -344,7 +344,7 @@ Description: GRand Unified Bootloader, version 2 (EFI-AMD64 version)
  a BIOS interface has been activated).
 
 Package: grub-efi-ia64-bin
-Architecture: any-ia64
+Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, grub-common (= ${binary:Version})
 Multi-Arch: foreign
 Description: GRand Unified Bootloader, version 2 (IA64 binaries)
@@ -364,7 +364,7 @@ Description: GRand Unified Bootloader, version 2 (IA64 binaries)
 
 Package: grub-efi-ia64-dbg
 Section: debug
-Architecture: any-ia64
+Architecture: any
 Depends: ${misc:Depends}, grub-efi-ia64-bin (= ${binary:Version}), grub-common (= ${binary:Version})
 Multi-Arch: foreign
 Description: GRand Unified Bootloader, version 2 (IA64 debug files)
@@ -372,7 +372,7 @@ Description: GRand Unified Bootloader, version 2 (IA64 debug files)
  these if you are trying to debug GRUB using its GDB stub.
 
 Package: grub-efi-ia64
-Architecture: any-ia64
+Architecture: any
 Pre-Depends: ${misc:Pre-Depends}
 Depends: ${shlibs:Depends}, ${misc:Depends}, grub2-common (= ${binary:Version}), grub-efi-ia64-bin (= ${binary:Version}), ucf
 Conflicts: elilo
@@ -391,8 +391,8 @@ Description: GRand Unified Bootloader, version 2 (IA64 version)
  IA64.
 
 Package: grub-efi-arm-bin
-Architecture: any-arm
-Depends: ${shlibs:Depends}, ${misc:Depends}, grub-common (= ${binary:Version}), efibootmgr [linux-any]
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, grub-common (= ${binary:Version}), efibootmgr
 Multi-Arch: foreign
 Description: GRand Unified Bootloader, version 2 (ARM UEFI binaries)
  GRUB is a portable, powerful bootloader.  This version of GRUB is based on a
@@ -411,7 +411,7 @@ Description: GRand Unified Bootloader, version 2 (ARM UEFI binaries)
 
 Package: grub-efi-arm-dbg
 Section: debug
-Architecture: any-arm
+Architecture: any
 Depends: ${misc:Depends}, grub-efi-arm-bin (= ${binary:Version}), grub-common (= ${binary:Version})
 Multi-Arch: foreign
 Description: GRand Unified Bootloader, version 2 (ARM UEFI debug files)
@@ -419,7 +419,7 @@ Description: GRand Unified Bootloader, version 2 (ARM UEFI debug files)
  these if you are trying to debug GRUB using its GDB stub.
 
 Package: grub-efi-arm
-Architecture: any-arm
+Architecture: any
 Pre-Depends: ${misc:Pre-Depends}
 Depends: ${shlibs:Depends}, ${misc:Depends}, grub2-common (= ${binary:Version}), grub-efi-arm-bin (= ${binary:Version}), ucf
 Conflicts: grub-uboot
@@ -438,8 +438,8 @@ Description: GRand Unified Bootloader, version 2 (ARM UEFI version)
  systems with UEFI.
 
 Package: grub-efi-arm64-bin
-Architecture: any-arm64
-Depends: ${shlibs:Depends}, ${misc:Depends}, grub-common (= ${binary:Version}), efibootmgr [linux-any]
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, grub-common (= ${binary:Version}), efibootmgr
 Multi-Arch: foreign
 Description: GRand Unified Bootloader, version 2 (ARM64 UEFI binaries)
  GRUB is a portable, powerful bootloader.  This version of GRUB is based on a
@@ -458,7 +458,7 @@ Description: GRand Unified Bootloader, version 2 (ARM64 UEFI binaries)
 
 Package: grub-efi-arm64-dbg
 Section: debug
-Architecture: any-arm64
+Architecture: any
 Depends: ${misc:Depends}, grub-efi-arm64-bin (= ${binary:Version}), grub-common (= ${binary:Version})
 Multi-Arch: foreign
 Description: GRand Unified Bootloader, version 2 (ARM64 UEFI debug files)
@@ -466,7 +466,7 @@ Description: GRand Unified Bootloader, version 2 (ARM64 UEFI debug files)
  need these if you are trying to debug GRUB using its GDB stub.
 
 Package: grub-efi-arm64
-Architecture: any-arm64
+Architecture: any
 Pre-Depends: ${misc:Pre-Depends}
 Depends: ${shlibs:Depends}, ${misc:Depends}, grub2-common (= ${binary:Version}), grub-efi-arm64-bin (= ${binary:Version}), ucf
 Multi-Arch: foreign
@@ -484,10 +484,10 @@ Description: GRand Unified Bootloader, version 2 (ARM64 UEFI version)
  ARM64 systems with UEFI.
 
 Package: grub-ieee1275-bin
-Architecture: any-i386 any-amd64 any-powerpc any-ppc64 any-ppc64el any-sparc any-sparc64
+Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, grub-common (= ${binary:Version})
 Replaces: grub2 (<< ${source:Version}), grub-common (<= 1.97~beta2-1), grub-ieee1275 (<< 1.99-1)
-Suggests: genisoimage [any-powerpc any-ppc64 any-ppc64el]
+Suggests: genisoimage
 Multi-Arch: foreign
 Description: GRand Unified Bootloader, version 2 (Open Firmware binaries)
  GRUB is a portable, powerful bootloader.  This version of GRUB is based on a
@@ -506,7 +506,7 @@ Description: GRand Unified Bootloader, version 2 (Open Firmware binaries)
 
 Package: grub-ieee1275-dbg
 Section: debug
-Architecture: any-i386 any-amd64 any-powerpc any-ppc64 any-ppc64el any-sparc any-sparc64
+Architecture: any
 Depends: ${misc:Depends}, grub-ieee1275-bin (= ${binary:Version}), grub-common (= ${binary:Version})
 Multi-Arch: foreign
 Description: GRand Unified Bootloader, version 2 (Open Firmware debug files)
@@ -514,9 +514,9 @@ Description: GRand Unified Bootloader, version 2 (Open Firmware debug files)
  need these if you are trying to debug GRUB using its GDB stub.
 
 Package: grub-ieee1275
-Architecture: any-i386 any-amd64 any-powerpc any-ppc64 any-ppc64el any-sparc any-sparc64
+Architecture: any
 Pre-Depends: ${misc:Pre-Depends}
-Depends: ${shlibs:Depends}, ${misc:Depends}, grub2-common (= ${binary:Version}), grub-ieee1275-bin (= ${binary:Version}), ucf, powerpc-ibm-utils (>= 1.2.12-1) [any-powerpc any-ppc64 any-ppc64el], powerpc-utils [any-powerpc any-ppc64 any-ppc64el]
+Depends: ${shlibs:Depends}, ${misc:Depends}, grub2-common (= ${binary:Version}), grub-ieee1275-bin (= ${binary:Version}), ucf, powerpc-ibm-utils (>= 1.2.12-1), powerpc-utils
 Replaces: grub-legacy, grub2 (<< ${source:Version}), grub-common (<= 1.97~beta2-1), grub-efi-amd64, grub-efi-ia32, grub-coreboot, grub-pc
 Conflicts: grub (<< 0.97-54), grub-legacy, grub-efi-amd64, grub-efi-ia32, grub-coreboot, grub-pc, grub-xen
 Multi-Arch: foreign
@@ -534,7 +534,7 @@ Description: GRand Unified Bootloader, version 2 (Open Firmware version)
  Open Firmware implementations.
 
 Package: grub-firmware-qemu
-Architecture: any-i386 any-amd64
+Architecture: any
 Depends: ${misc:Depends}
 Recommends: qemu
 Enhances: qemu
@@ -553,7 +553,7 @@ Description: GRUB firmware image for QEMU
  grub-coreboot package, and manually combine that with coreboot.
 
 Package: grub-uboot-bin
-Architecture: any-arm
+Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, grub-common (= ${binary:Version})
 Multi-Arch: foreign
 Description: GRand Unified Bootloader, version 2 (ARM U-Boot binaries)
@@ -573,7 +573,7 @@ Description: GRand Unified Bootloader, version 2 (ARM U-Boot binaries)
 
 Package: grub-uboot-dbg
 Section: debug
-Architecture: any-arm
+Architecture: any
 Depends: ${misc:Depends}, grub-uboot-bin (= ${binary:Version}), grub-common (= ${binary:Version})
 Multi-Arch: foreign
 Description: GRand Unified Bootloader, version 2 (ARM U-Boot debug files)
@@ -581,7 +581,7 @@ Description: GRand Unified Bootloader, version 2 (ARM U-Boot debug files)
  these if you are trying to debug GRUB using its GDB stub.
 
 Package: grub-uboot
-Architecture: any-arm
+Architecture: any
 Pre-Depends: ${misc:Pre-Depends}
 Depends: ${shlibs:Depends}, ${misc:Depends}, grub2-common (= ${binary:Version}), grub-uboot-bin (= ${binary:Version}), ucf
 Conflicts: grub-efi-arm
@@ -600,7 +600,7 @@ Description: GRand Unified Bootloader, version 2 (ARM U-Boot version)
  ARM systems with U-Boot.
 
 Package: grub-xen-bin
-Architecture: i386 amd64
+Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, grub-common (= ${binary:Version})
 Multi-Arch: foreign
 Description: GRand Unified Bootloader, version 2 (Xen binaries)
@@ -620,7 +620,7 @@ Description: GRand Unified Bootloader, version 2 (Xen binaries)
 
 Package: grub-xen-dbg
 Section: debug
-Architecture: i386 amd64
+Architecture: any
 Depends: ${misc:Depends}, grub-xen-bin (= ${binary:Version}), grub-common (= ${binary:Version})
 Multi-Arch: foreign
 Description: GRand Unified Bootloader, version 2 (Xen debug files)
@@ -628,7 +628,7 @@ Description: GRand Unified Bootloader, version 2 (Xen debug files)
  these if you are trying to debug GRUB using its GDB stub.
 
 Package: grub-xen
-Architecture: i386 amd64
+Architecture: any
 Pre-Depends: ${misc:Pre-Depends}
 Depends: ${shlibs:Depends}, ${misc:Depends}, grub2-common (= ${binary:Version}), grub-xen-bin (= ${binary:Version}), ucf
 Conflicts: grub (<< 0.97-54), grub-legacy, grub-efi-amd64, grub-efi-ia32, grub-coreboot, grub-ieee1275, grub-pc
@@ -647,7 +647,7 @@ Description: GRand Unified Bootloader, version 2 (Xen version)
  the Xen hypervisor (i.e. PV-GRUB).
 
 Package: grub-xen-host
-Architecture: i386 amd64
+Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, grub-xen-bin (= ${binary:Version})
 Multi-Arch: foreign
 Description: GRand Unified Bootloader, version 2 (Xen host version)
@@ -664,7 +664,7 @@ Description: GRand Unified Bootloader, version 2 (Xen host version)
  guest (i.e. PV-GRUB) to be present in the control domain filesystem.
 
 Package: grub-yeeloong-bin
-Architecture: any-mipsel
+Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, grub-common (= ${binary:Version})
 Replaces: grub-common (<< 1.98+20100617-2), grub-yeeloong (<< 1.99-1)
 Multi-Arch: foreign
@@ -685,7 +685,7 @@ Description: GRand Unified Bootloader, version 2 (Yeeloong binaries)
 
 Package: grub-yeeloong-dbg
 Section: debug
-Architecture: any-mipsel
+Architecture: any
 Depends: ${misc:Depends}, grub-yeeloong-bin (= ${binary:Version}), grub-common (= ${binary:Version})
 Multi-Arch: foreign
 Description: GRand Unified Bootloader, version 2 (Yeeloong debug files)
@@ -693,7 +693,7 @@ Description: GRand Unified Bootloader, version 2 (Yeeloong debug files)
  need these if you are trying to debug GRUB using its GDB stub.
 
 Package: grub-yeeloong
-Architecture: any-mipsel
+Architecture: any
 Pre-Depends: ${misc:Pre-Depends}
 Depends: ${shlibs:Depends}, ${misc:Depends}, grub2-common (= ${binary:Version}), grub-yeeloong-bin (= ${binary:Version}), ucf
 Replaces: grub-common (<< 1.98+20100617-2)
@@ -714,7 +714,7 @@ Description: GRand Unified Bootloader, version 2 (Yeeloong version)
 Package: grub-theme-starfield
 # Could be Architecture: any, but in practice this package is useless in a
 # utilities-only build.
-Architecture: any-i386 any-amd64 any-powerpc any-ppc64 any-ppc64el any-sparc any-sparc64 any-mipsel any-ia64 any-arm any-arm64
+Architecture: any
 Depends: ${misc:Depends}, grub-common (= ${binary:Version})
 Multi-Arch: foreign
 Description: GRand Unified Bootloader, version 2 (starfield theme)
@@ -723,6 +723,6 @@ Description: GRand Unified Bootloader, version 2 (starfield theme)
 Package: grub-mount-udeb
 Package-Type: udeb
 Section: debian-installer
-Architecture: linux-any kfreebsd-any
+Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: export GRUB filesystems using FUSE
