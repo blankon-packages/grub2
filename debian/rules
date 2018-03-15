@@ -64,7 +64,7 @@ COMMON_PLATFORM := none
 BUILD_PACKAGES += grub-none
 endif
 
-ifeq (yes,$(shell dpkg-vendor --derives-from BlankOn && echo yes))
+ifeq (yes,$(shell dpkg-vendor --derives-from Ubuntu && echo yes))
 DEFAULT_CMDLINE := quiet splash
 DEFAULT_TIMEOUT := 10
 ifeq ($(DEB_HOST_ARCH_CPU),ppc64el)
@@ -72,8 +72,8 @@ FLICKER_FREE_BOOT := no
 else
 FLICKER_FREE_BOOT := yes
 endif
-confflags += --enable-blankon-recovery
-else ifeq (yes,$(shell dpkg-vendor --derives-from BlankOn && echo yes))
+confflags += --enable-ubuntu-recovery
+else ifeq (yes,$(shell dpkg-vendor --derives-from Tanglu && echo yes))
 DEFAULT_CMDLINE := quiet splash
 DEFAULT_TIMEOUT := 10
 FLICKER_FREE_BOOT := yes
@@ -100,7 +100,7 @@ DEFAULT_HIDDEN_TIMEOUT_BOOL := false
 endif
 
 SB_PACKAGE :=
-ifeq (yes,$(shell dpkg-vendor --derives-from BlankOn && echo yes))
+ifeq (yes,$(shell dpkg-vendor --derives-from Ubuntu && echo yes))
 ifeq ($(DEB_HOST_ARCH),amd64)
 SB_PACKAGE := grub-efi-amd64
 SB_PLATFORM := x86_64-efi
