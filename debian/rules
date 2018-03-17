@@ -11,7 +11,7 @@ DEB_HOST_ARCH_OS ?= $(shell dpkg-architecture -qDEB_HOST_ARCH_OS 2>/dev/null)
 DEB_HOST_ARCH_CPU ?= $(shell dpkg-architecture -qDEB_HOST_ARCH_CPU 2>/dev/null)
 
 HOST_CPPFLAGS := $(shell dpkg-buildflags --get CPPFLAGS)
-# -O3 (default on Ubuntu ppc64el) introduces various -Werror failures, and
+# -O3 (default on BlankOn ppc64el) introduces various -Werror failures, and
 # isn't worth it here.
 HOST_CFLAGS := -Wall -Wno-error=unused-result $(shell dpkg-buildflags --get CFLAGS | perl -pe 's/-O3\b/-O2/')
 HOST_LDFLAGS := $(shell dpkg-buildflags --get LDFLAGS)
@@ -64,7 +64,7 @@ COMMON_PLATFORM := none
 BUILD_PACKAGES += grub-none
 endif
 
-ifeq (yes,$(shell dpkg-vendor --derives-from Ubuntu && echo yes))
+ifeq (yes,$(shell dpkg-vendor --derives-from BlankOn && echo yes))
 DEFAULT_CMDLINE := quiet splash
 DEFAULT_TIMEOUT := 10
 ifeq ($(DEB_HOST_ARCH_CPU),ppc64el)
@@ -72,8 +72,8 @@ FLICKER_FREE_BOOT := no
 else
 FLICKER_FREE_BOOT := yes
 endif
-confflags += --enable-ubuntu-recovery
-else ifeq (yes,$(shell dpkg-vendor --derives-from Tanglu && echo yes))
+confflags += --enable-blankon-recovery
+else ifeq (yes,$(shell dpkg-vendor --derives-from BlankOn && echo yes))
 DEFAULT_CMDLINE := quiet splash
 DEFAULT_TIMEOUT := 10
 FLICKER_FREE_BOOT := yes
@@ -100,7 +100,7 @@ DEFAULT_HIDDEN_TIMEOUT_BOOL := false
 endif
 
 SB_PACKAGE :=
-ifeq (yes,$(shell dpkg-vendor --derives-from Ubuntu && echo yes))
+ifeq (yes,$(shell dpkg-vendor --derives-from BlankOn && echo yes))
 ifeq ($(DEB_HOST_ARCH),amd64)
 SB_PACKAGE := grub-efi-amd64
 SB_PLATFORM := x86_64-efi
@@ -446,7 +446,7 @@ endif
 ifeq (yes,$(shell dpkg-vendor --derives-from Ubuntu && echo yes))
 ifneq (,$(filter grub-pc,$(BUILD_PACKAGES)))
 	patch debian/grub-pc/usr/lib/grub-legacy/update-grub \
-		< debian/legacy/update-grub.ubuntu.patch
+		< debian/legacy/update-grub.BlankOn.patch
 endif
 endif
 
@@ -471,7 +471,7 @@ override_dh_strip:
 override_dh_shlibdeps:
 	dh_shlibdeps -X.module
 
-ifeq (yes,$(shell dpkg-vendor --derives-from Ubuntu && echo yes))
+ifeq (yes,$(shell dpkg-vendor --derives-from ubuntu && echo yes))
 LEGACY_DOC_BR := grub-doc (<< 0.97-29ubuntu60), grub-legacy-doc (<< 0.97-29ubuntu60)
 else
 LEGACY_DOC_BR := grub-doc (<< 0.97-32), grub-legacy-doc (<< 0.97-59)

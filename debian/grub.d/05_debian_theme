@@ -182,7 +182,7 @@ case $GRUB_DISTRIBUTOR in
 	Ubuntu|Kubuntu)
 		;;
 	Tanglu)
-		if set_background_image "/usr/share/images/grub/grub.png"; then
+		if set_background_image "/usr/share/backgrounds/grub-blankon.png"; then
 			exit 0
 		fi
 		;;
