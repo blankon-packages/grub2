@@ -1,3 +1,11 @@
+grub2 (2.02-2blankon4) uluwatu; urgency=medium
+
+  * Add grub2-common.postinst
+  * Edit grub2-common.install
+  * Edit grub.d/05_debian_theme
+
+ -- Anto Samalona <ansamsoftdev@gmail.com>  Sun, 18 Mar 2018 00:53:52 +0800
+
 grub2 (2.02-2blankon3) uluwatu; urgency=medium
 
   * Fixed background

@@ -1,5 +1,6 @@
 ../../debian/default			usr/share/grub
 ../../debian/update-grub		usr/sbin
+../../debian/grub-blankon.png		usr/share/backgrounds 
 
 usr/sbin/grub-install
 usr/sbin/grub-reboot
