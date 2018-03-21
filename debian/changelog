@@ -1,3 +1,9 @@
+grub2 (2.02-2blankon5) uluwatu; urgency=medium
+
+  * grub-background resolution
+
+ -- Anto Samalona <ansamsoftdev@gmail.com>  Thu, 22 Mar 2018 07:12:51 +0800
+
 grub2 (2.02-2blankon4) uluwatu; urgency=medium
 
   * Add grub2-common.postinst
