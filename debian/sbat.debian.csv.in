@@ -1,0 +1,4 @@
+sbat,1,SBAT Version,sbat,1,https://github.com/rhboot/shim/blob/main/SBAT.md
+grub,1,Free Software Foundation,grub,@UPSTREAM_VERSION@,https://www.gnu.org/software/grub/
+grub.debian,1,Debian,grub2,@DEB_VERSION@,https://tracker.debian.org/pkg/grub2
+grub.blankon,1,BlankOn,grub2,@DEB_VERSION@,https://github.com/blankon-packages/grub2

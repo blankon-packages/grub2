@@ -34,6 +34,11 @@ set_default_theme(){
 			echo "${1}set menu_color_normal=white/black"
 			echo "${1}set menu_color_highlight=black/light-gray"
 
+			if [ -e /usr/share/plymouth/themes/default.grub ]; then
+				sed "s/^/${1}/" /usr/share/plymouth/themes/default.grub
+			fi
+			# For plymouth backward compatibility. Can be removed
+			# after xenial.
 			if [ -e /lib/plymouth/themes/default.grub ]; then
 				sed "s/^/${1}/" /lib/plymouth/themes/default.grub
 			fi
@@ -90,7 +95,7 @@ set_background_image(){
 	fi
 
 	# Step #5: Check if GRUB can read the background image directly.
-	# If so, we can remove the cache file (if any). Otherwise the backgound
+	# If so, we can remove the cache file (if any). Otherwise the background
 	# image needs to be cached under /boot/grub/.
 	if is_path_readable_by_grub "${1}"; then
 		rm --force "${BACKGROUND_CACHE}.jpeg" \
@@ -173,11 +178,20 @@ if set_background_image "${WALLPAPER}" "${COLOR_NORMAL}" "${COLOR_HIGHLIGHT}"; t
 fi
 
 # If we haven't found a background image yet, use the default from desktop-base.
-if set_background_image "/usr/share/backgrounds/grub-blankon.png"; then
-	exit 0
-fi
-c
+case $GRUB_DISTRIBUTOR in
+	Ubuntu|Kubuntu)
+		;;
+	Tanglu)
+		if set_background_image "/usr/share/images/grub/grub.png"; then
+			exit 0
+		fi
+		;;
+	*)
+		if set_background_image "/usr/share/images/desktop-base/desktop-grub.png"; then
+			exit 0
+		fi
+		;;
+esac
 
 # Finally, if all of the above fails, use the default theme.
 set_default_theme
-
