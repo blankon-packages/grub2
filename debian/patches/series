@@ -121,11 +121,6 @@ grub-install-inverted-nls-test.patch
 2021-02-security/019-kern-parser-Fix-resource-leak-if-argc-0.patch
 2021-02-security/020-kern-efi-Fix-memory-leak-on-failure.patch
 2021-02-security/021-kern-efi-mm-Fix-possible-NULL-pointer-dereference.patch
-2021-02-security/022-gnulib-regexec-Resolve-unused-variable.patch
-2021-02-security/023-gnulib-regcomp-Fix-uninitialized-token-structure.patch
-2021-02-security/024-gnulib-argp-help-Fix-dereference-of-a-possibly-NULL-state.patch
-2021-02-security/025-gnulib-regexec-Fix-possible-null-dereference.patch
-2021-02-security/026-gnulib-regcomp-Fix-uninitialized-re_token.patch
 2021-02-security/027-io-lzopio-Resolve-unnecessary-self-assignment-errors.patch
 2021-02-security/028-zstd-Initialize-seq_t-structure-fully.patch
 2021-02-security/029-kern-partition-Check-for-NULL-before-dereferencing-input-string.patch
