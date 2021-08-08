@@ -1,3 +1,9 @@
+grub2 (2.04-17blankon1) verbeek; urgency=medium
+
+  * First revision
+
+ -- Herpiko Dwi Aguno <herpiko@gmail.com>  Sun, 08 Aug 2021 15:10:23 +0000
+
 grub2 (2.04-17) unstable; urgency=medium
 
   * Pass --sbat when building the d-i netboot image as well.
